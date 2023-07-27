@@ -122,10 +122,10 @@ header{
 
 #cards-container .card{
   max-width: 25%;
-  margin: 5px;
+  margin: .5%;
   padding: 0;
   
-  flex: 1 1 0;
+  flex: 1 1 24%;
   
   border-radius: 10px;
 }

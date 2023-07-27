@@ -67,13 +67,13 @@ class EventController extends Controller
             $requestImage = $request->image; 
             // Obtém o arquivo de upload do objeto $request e atribui à variável $requestImage.
 
-            $extension = $requestImage.extension();
+            $extension = $requestImage->extension();
             // Obtém a extensão do arquivo de upload para uso posterior.
 
             $imgName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
             // Gera um nome único para o arquivo usando a função md5, o nome original do arquivo e o timestamp atual.
 
-            $request->imgName = move(public_path('img/events'), $imgName);
+            $requestImage->move(public_path('img/events'), $imgName);
             // Move para a pasta public/img/events/img_Name
 
             // atributo 'image' do banco é o nome criado para a mesma
