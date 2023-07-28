@@ -21,27 +21,6 @@ class EventController extends Controller
         return view('events.create');
     }
 
-    public function contact(){
-        return view('contato');
-    }
-
-    public function products(){
-        $busca = request('search');
-
-        return view('produtos',
-        [
-            'busca' => $busca
-        ]);
-    }
-
-    public function product($id = null){
-        return view('prod', 
-        [
-            'id' => $id
-        ]);
-    }
-
-    
     public function store(Request $request){ // Rota pelo metodo 'post', pega dados fornecidos
 
         // variavel evento é um novo evento no banco
@@ -58,6 +37,9 @@ class EventController extends Controller
 
         // atributo 'desc' do banco é o que foi fornecido pelo formulario com o id/name 'desc'
         $event->desc = $request->desc;
+
+        // atributo 'items' do banco é o que foi fornecido pelo formulario com o id/name 'items'
+        $event->items = $request->items;
 
 
         // Upload file:
