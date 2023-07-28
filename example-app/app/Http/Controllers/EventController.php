@@ -41,6 +41,9 @@ class EventController extends Controller
         // atributo 'items' do banco é o que foi fornecido pelo formulario com o id/name 'items'
         $event->items = $request->items;
 
+        // atributo 'date' do banco é o que foi fornecido pelo formulario com o id/name 'date'
+        $event->date = $request->date;
+
 
         // Upload file:
         // Verificação se o objeto $request contém um arquivo com o nome "image" e se esse arquivo é válido.

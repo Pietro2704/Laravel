@@ -25,7 +25,13 @@
                 <img src="/img/events/{{$event->image}}" alt="{{$event->title}}">
 
                 <div class="card-body">
-                    <p class="card-date">24/07/2023</p>
+
+                    @if($event->date != null)
+                        <p class="card-date">@formatDate($event->date)</p>
+                    @else
+                        <p class="card-date">Em Breve</p>
+                    @endif
+
                     <h5 class="card-title">{{$event->title}}</h5>
                     <p class="card-participants">X Participantes</p>
                     <a href="/events/{{$event->id}}" class="btn btn-primary">Saber Mais</a>

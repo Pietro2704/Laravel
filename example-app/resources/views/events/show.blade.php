@@ -12,6 +12,16 @@
     <div id="info-container" class="col-md-6">
       <h1>{{$event->title}}</h1>
 
+      @if($event->date != null)
+      <p class="event-date">
+        <ion-icon name="calendar-outline"></ion-icon> @formatDate($event->date)
+      </p>
+      @else
+      <p class="event-date">
+        <ion-icon name="calendar-outline"></ion-icon> Em breve
+      </p>
+      @endif
+      
       <p class="event-city">
         <ion-icon name="location-outline"></ion-icon> {{$event->city}}
       </p>

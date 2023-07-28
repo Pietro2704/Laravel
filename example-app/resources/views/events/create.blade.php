@@ -25,6 +25,11 @@
     </div>
 
     <div class="form-group mb-3">
+      <label for="title">Data:</label>
+      <input type="date" name="date" id="date" class="form-control" placeholder="Data do Evento">
+    </div>
+
+    <div class="form-group mb-3">
       <label for="title">O evento é privado?</label>
       <select name="private" id="private" class="form-control">
         <option value="0">Não</option>
