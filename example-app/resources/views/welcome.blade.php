@@ -17,6 +17,10 @@
     <h2>Próximos Eventos</h2>
     <p class="subtitle">Veja os eventos dos próximos dias</p>
 
+    @if(count($events)==0)
+        <p>Não há eventos</p>
+    @endif
+
 
     <div id="cards-container" class="row">
 
