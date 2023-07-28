@@ -9,11 +9,30 @@ class EventController extends Controller
 {
     public function index(){
 
-        $events = Event::all();
+        // Pode ter uma busca
+        $busca = request('search');
 
+        // Se busca existe:
+        if($busca){ 
+
+            // select * from events where title like %busca%
+            $events = Event::where([
+
+                ['title', 'like', '%' . $busca . '%']
+
+            ])->get();
+
+        }else{ // Senao tiver busca:
+
+            // Mostra todos os eventos
+            $events = Event::all();
+        }
+
+        // No final retorna pra view passando parâmetros
         return view('welcome',
             [
-                'events' => $events 
+                'events' => $events,
+                'search' => $busca
             ]);
     }
 

@@ -6,19 +6,25 @@
 
 <div class="col-md-12" id="search-container">
     <h1>Busque um evento</h1>
-    <form action="#">
+    <form action="/" method="GET">
         <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
     </form>
 </div>
 
 
 <div id="events-container" class="col-md-12">
+    @if($search)
+        <h2>Buscando por: {{$search}}</h2>
+    @else
+        <h2>Próximos Eventos</h2>
+        <p class="subtitle">Veja os eventos dos próximos dias</p>
+    @endif
 
-    <h2>Próximos Eventos</h2>
-    <p class="subtitle">Veja os eventos dos próximos dias</p>
-
-    @if(count($events)==0)
-        <p>Não há eventos</p>
+    @if($search && count($events)==0)
+        <p>Não foi possível encontrar nenhum resultado para sua busca</p>
+        <a href="/" class="btn btn-primary">Ver todos!</a>
+    @elseif(count($events)==0)
+        <p>Não há eventos disponíveis</p>
     @endif
 
 
