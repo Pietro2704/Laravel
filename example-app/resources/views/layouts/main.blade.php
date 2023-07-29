@@ -33,12 +33,34 @@
               <li class="nav-item">
                 <a href="/events/create" class="nav-link">Criar Evento</a>
               </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link">Entrar</a>
-              </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link">Cadastrar</a>
-              </li>
+
+              @auth
+                <li class="nav-item">
+                  <a href="/dashboard" class="nav-link">Meus Eventos</a>
+                </li>
+                <li class="nav-item">
+                  <form action="/logout" method="POST">
+                  @csrf
+                  <a href="/logout" 
+                  class="nav-link"
+                  onclick="event.preventDefault(); // O JavaScript irá tratar o clique e enviar a solicitação do formulário.
+                  this.closest('form').submit(); // JavaScript localiza o elemento 'form' mais próximo ao link em que o usuário clicou eo submete">
+                  Sair
+                  </a>
+                  <!--  Quando o usuário clica no link "Sair", o JavaScript executa o código event.preventDefault(); para evitar o redirecionamento imediato e, em vez disso, envia a solicitação POST para a rota "/logout"  -->
+                  </form>
+                </li>
+              @endauth
+
+              @guest
+                <li class="nav-item">
+                  <a href="/login" class="nav-link">Entrar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/register" class="nav-link">Cadastrar</a>
+                </li>
+              @endguest
+
             </ul>
           </div>
         </nav>

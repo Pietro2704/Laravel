@@ -38,3 +38,12 @@ Route::get('enderecoWeb', function(){
     PHP ARTISAN MAKE:CONTROLLER EventController
 Route::get('enderecoWeb', [nomeClasse::class, 'nomeFunção']);
 */
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
