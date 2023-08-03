@@ -25,6 +25,8 @@ Route::get('/events/{id}', [EventController::class, 'show']);
 
 Route::get('contact', [EventController::class, 'contact']);
 
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
 
 
 /*
@@ -38,12 +40,3 @@ Route::get('enderecoWeb', function(){
     PHP ARTISAN MAKE:CONTROLLER EventController
 Route::get('enderecoWeb', [nomeClasse::class, 'nomeFunção']);
 */
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});

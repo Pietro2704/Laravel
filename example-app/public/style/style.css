@@ -155,7 +155,7 @@ header{
   font-size: 14px;
 }
 
-/* Event create page --------------------------------------------------------------------*/
+/* CRIAR EVENTO --------------------------------------------------------------------*/
 
 #event-create-container h1{
   padding: 30px;
@@ -227,6 +227,16 @@ header{
   margin-top: 30px;
 }
 
+/*  DASHBOARD --------------------------------------------------------------------*/
+
+.dashboard-title-container {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.dashboard-events-container th {
+  width: 25%;
+}
 
 /*  RODAPÉ --------------------------------------------------------------------*/
 
