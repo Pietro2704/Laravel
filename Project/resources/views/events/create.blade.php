@@ -14,15 +14,15 @@
     </div>
     <div class="form-group">
       <label for="title">Evento:</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="Nome do evento">
+      <input required type="text" class="form-control" id="title" name="title" placeholder="Nome do evento">
     </div>
     <div class="form-group">
       <label for="date">Data do evento:</label>
-      <input type="date" class="form-control" id="date" name="date">
+      <input required type="date" class="form-control" id="date" name="date">
     </div>
     <div class="form-group">
       <label for="title">Cidade:</label>
-      <input type="text" class="form-control" id="city" name="city" placeholder="Local do evento">
+      <input required type="text" class="form-control" id="city" name="city" placeholder="Local do evento">
     </div>
     <div class="form-group">
       <label for="title">O evento é privado?</label>
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
       <label for="title">Descrição:</label>
-      <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no evento?"></textarea>
+      <textarea required name="description" id="description" class="form-control" placeholder="O que vai acontecer no evento?"></textarea>
     </div>
     <div class="form-group">
       <label for="title">Adicione itens de infraestrutura:</label>
