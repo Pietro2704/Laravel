@@ -127,4 +127,48 @@ class EventController extends Controller
         return redirect('/dashboard')->with('msg', 'Evento deletado com sucesso!');
         
     }
+
+    public function edit($id){
+        $event = Event::findOrFail($id);
+
+        return view('events.edit',
+        [
+            'event' => $event
+        ]);
+    }
+
+    public function update(Request $request){
+
+        $dados = $request->all();
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){ 
+
+            $requestImage = $request->image; 
+            // Obtém o arquivo de upload do objeto $request e atribui à variável $requestImage.
+
+            $extension = $requestImage->extension();
+            // Obtém a extensão do arquivo de upload para uso posterior.
+
+            $imgName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            // Gera um nome único para o arquivo usando a função md5, o nome original do arquivo e o timestamp atual.
+
+            $requestImage->move(public_path('img/events'), $imgName);
+            // Move para a pasta public/img/events/img_Name
+
+            // atributo 'image' do banco é o nome criado para a mesma
+            $dados['image'] = $imgName;
+
+        }
+
+        Event::findOrFail($request->id)->update($dados);
+
+        return redirect('/dashboard')->with('msg', 'Evento atualizado com sucesso!');
+    }
+
+    public function joinEvent($id){
+        $user = auth()->user();
+        $user->eventAsParticipant()->attach($id);
+        $event = Event::FindOrFail($id);
+        return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento '.$event->title);
+    }
 }

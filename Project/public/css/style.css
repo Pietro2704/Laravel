@@ -224,7 +224,7 @@ header{
 }
 
 #description-container{
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 /*  DASHBOARD --------------------------------------------------------------------*/
@@ -240,6 +240,12 @@ header{
 
 .dashboard-events-container form {
   display: inline-block;
+}
+
+/*  EDITAR EVENTO --------------------------------------------------------------------*/
+
+.img-preview{
+  width: 150px;
 }
 
 /*  RODAPÉ --------------------------------------------------------------------*/
