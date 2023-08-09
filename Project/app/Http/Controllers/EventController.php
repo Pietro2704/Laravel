@@ -171,6 +171,6 @@ class EventController extends Controller
         $user = auth()->user();
         $user->eventAsParticipant()->attach($id);
         $event = Event::FindOrFail($id);
-        return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento '.$event->title);
+        return redirect('/')->with('msg', 'Sua presença está confirmada no evento '.$event->title);
     }
 }

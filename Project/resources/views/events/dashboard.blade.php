@@ -38,6 +38,7 @@
     </table>
     @else
     <p>Você ainda não tem eventos, deseja <a href="/events/create">criar um evento?</a></p>
+    <p>Ou deseja ver <a href="/">todos os eventos?</a></p>
     @endif
 </div>
 
